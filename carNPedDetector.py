@@ -23,13 +23,13 @@ while True:
 
     # Checks if video input worked
     if readSuccess:
-        print("Nice Ready for GrayScale")
-
+        #grayscales the video
+        grayscaleVid = cv2.cvtColor(captFrame, cv2.COLOR_BGR2GRAY)
     else:
         break
 
-    # Shows video
-    cv2.imshow('Car and Pedestrian Detector', captFrame)
+    # Shows  grayscale video
+    cv2.imshow('Car and Pedestrian Detector', grayscaleVid)
 
     # Time to wait for each frame in video
     key = cv2.waitKey(1)
