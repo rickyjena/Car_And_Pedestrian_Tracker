@@ -12,7 +12,7 @@ trainedPedData = cv2.CascadeClassifier(trainPedFileName)
 # This pretrained car data being loaded in using opencv
 trainedCarData = cv2.CascadeClassifier(trainCarFileName)
 
-# Loaded in video file for to act as cehicle camera
+# Loaded in video file for to act as vehicle camera
 vehicleCamData = cv2.VideoCapture(videoFileName)
 
 # Looping through frames for camera
@@ -43,7 +43,7 @@ while True:
         # Box side width
         boxWidth = 2
 
-        # Draw rectangles around the faces using coords
+        # Draw rectangles around the pedestrian using coords
         cv2.rectangle(captFrame, startPoint, endPoint, boxColor, boxWidth)
 
     # Get coordinates of cars in video
@@ -61,7 +61,7 @@ while True:
         # Box side width
         boxWidth = 2
 
-        # Draw rectangles around the faces using coords
+        # Draw rectangles around the cars using coords
         cv2.rectangle(captFrame, startPoint, endPoint, boxColor, boxWidth)
 
     # Shows  grayscale video
