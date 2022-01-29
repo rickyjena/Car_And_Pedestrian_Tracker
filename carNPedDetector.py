@@ -23,7 +23,8 @@ while True:
 
     # Checks if video input worked
     if readSuccess:
-        "Nice Ready for GrayScale"
+        print("Nice Ready for GrayScale")
+
     else:
         break
 
