@@ -28,6 +28,12 @@ while True:
     else:
         break
 
+    # Get coordinates of cars in video
+    carCoords = trainedCarData.detectMultiScale(grayscaleVid)
+
+    # Testing out printing of coordinates
+    print(carCoords)
+
     # Shows  grayscale video
     cv2.imshow('Car and Pedestrian Detector', grayscaleVid)
 
