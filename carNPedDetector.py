@@ -4,7 +4,7 @@ trainPedFileName = 'haarcascade_fullbody.xml'
 
 trainCarFileName = 'carsTrainingData.xml'
 
-videoFileName = 'jdm.mp4'
+videoFileName = 'biker.mp4'
 
 # This is the pretrained data for pedestrians loaded in with opencv
 trainedPedData = cv2.CascadeClassifier(trainPedFileName)
@@ -27,6 +27,24 @@ while True:
         grayscaleVid = cv2.cvtColor(captFrame, cv2.COLOR_BGR2GRAY)
     else:
         break
+
+    # Get coords of pedestrians in video
+    pedCoords = trainedPedData.detectMultiScale(grayscaleVid)
+
+    #Creates rectangle for pedestrians
+    for x in pedCoords:
+        (startX, startY, width, height) = x
+        startPoint = (startX, startY)
+        endPoint = (startX + width, startY + height)
+
+        # Set box color to red
+        boxColor = (0, 0, 255)
+
+        # Box side width
+        boxWidth = 2
+
+        # Draw rectangles around the faces using coords
+        cv2.rectangle(captFrame, startPoint, endPoint, boxColor, boxWidth)
 
     # Get coordinates of cars in video
     carCoords = trainedCarData.detectMultiScale(grayscaleVid)
