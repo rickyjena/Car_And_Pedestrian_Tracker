@@ -31,11 +31,23 @@ while True:
     # Get coordinates of cars in video
     carCoords = trainedCarData.detectMultiScale(grayscaleVid)
 
-    # Testing out printing of coordinates
-    print(carCoords)
+    #Creates rectangle for cars
+    for x in carCoords:
+        (startX, startY, width, height) = x
+        startPoint = (startX, startY)
+        endPoint = (startX + width, startY + height)
+
+        # Set box color to green
+        boxColor = (0, 255, 0)
+
+        # Box side width
+        boxWidth = 2
+
+        # Draw rectangles around the faces using coords
+        cv2.rectangle(captFrame, startPoint, endPoint, boxColor, boxWidth)
 
     # Shows  grayscale video
-    cv2.imshow('Car and Pedestrian Detector', grayscaleVid)
+    cv2.imshow('Car and Pedestrian Detector', captFrame)
 
     # Time to wait for each frame in video
     key = cv2.waitKey(1)
