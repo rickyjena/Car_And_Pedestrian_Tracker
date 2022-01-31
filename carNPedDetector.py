@@ -4,7 +4,7 @@ trainPedFileName = 'haarcascade_fullbody.xml'
 
 trainCarFileName = 'carsTrainingData.xml'
 
-videoFileName = 'biker.mp4'
+videoFileName = 'tokyoStreets.mp4'
 
 # This is the pretrained data for pedestrians loaded in with opencv
 trainedPedData = cv2.CascadeClassifier(trainPedFileName)
